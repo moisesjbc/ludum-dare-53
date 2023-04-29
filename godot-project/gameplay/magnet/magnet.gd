@@ -15,6 +15,10 @@ func radius():
 	return $influence_area/collision_shape.shape.radius
 	
 
+func color():
+	return get_parent().color
+	
+
 func attach(object):
 	var object_position = object.global_position
 	object.get_parent().remove_child(object)

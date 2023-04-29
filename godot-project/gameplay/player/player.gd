@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 export (int) var speed = 500
 var magnet_working = false
+var color = Color.white
 
 
 func _physics_process(delta):
