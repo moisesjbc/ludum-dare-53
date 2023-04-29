@@ -10,4 +10,4 @@ func set_type(new_type, colors):
 
 func _on_delivery_zone_body_entered(body):
 	if body.is_in_group("boxes"):
-		body.queue_free()
+		body.deliver(body.type == type)

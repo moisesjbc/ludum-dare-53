@@ -24,3 +24,17 @@ func _process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision and collision.collider.get_node_or_null("magnet") and collision.collider.get_node("magnet").type() != type:
 		collision.collider.get_node("magnet").attach(self)
+
+
+func deliver(is_correct):	
+	if is_correct:
+		$score_label.text = "+10"
+		$animation_player.play("correct_delivery")
+	else:
+		$score_label.text = "-10"
+		$animation_player.play("wrong_delivery")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "correct_delivery" or anim_name == "wrong_delivery":
+		queue_free()
