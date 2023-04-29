@@ -31,7 +31,7 @@ func attach(object):
 	object.set_process(false)
 	object.set_collision_mask_bit(0, false)
 	object.global_position = object_position
-	object.global_rotation = global_rotation
+	object.global_rotation = object_rotation
 	
 	var magnet_scene = load("res://gameplay/magnet/magnet.tscn")
 	object.add_child(magnet_scene.instance())

@@ -32,5 +32,5 @@ func _process(delta):
 		velocity += (near_magnet.global_position - global_position).normalized() * multiplier * (near_magnet.radius() - global_position.distance_to(near_magnet.global_position))
 		
 	var collision = move_and_collide(velocity * delta)
-	if collision and collision.collider.get_node("magnet") and collision.collider.get_node("magnet").color() != color:
+	if collision and collision.collider.get_node_or_null("magnet") and collision.collider.get_node("magnet").color() != color:
 		collision.collider.get_node("magnet").attach(self)

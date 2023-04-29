@@ -25,9 +25,9 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
-		if $magnet:
+		if get_node("magnet"):
 			print("Removing magnet from player")
-			$magnet.remove()
+			get_node("magnet").remove()
 		else:
 			print("Addign magnet to player")
 			var magnet_scene = load("res://gameplay/magnet/magnet.tscn")
