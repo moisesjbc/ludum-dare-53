@@ -30,9 +30,8 @@ func _process(delta):
 
 func deliver(is_correct):
 	var magnet = get_node_or_null("magnet")
-	#if magnet:
-	#	print("DETACHING ALL")
-	#	magnet.remove()
+	if magnet:
+		magnet.remove()
 
 	if is_correct:
 		$score_label.text = "+10"
