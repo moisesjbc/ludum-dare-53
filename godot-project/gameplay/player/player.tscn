@@ -19,3 +19,5 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="magnet" parent="." instance=ExtResource( 3 )]
+
+[node name="attachments" type="Node2D" parent="."]
