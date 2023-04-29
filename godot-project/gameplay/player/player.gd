@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 export (int) var speed = 500
-var color = Color.white
+var type = -1
 
 
 func _physics_process(delta):
@@ -19,8 +19,6 @@ func _physics_process(delta):
 		velocity.y = 1
 
 	move_and_collide(speed * velocity * delta)
-	
-	look_at(get_global_mouse_position())
 
 
 func _input(event):

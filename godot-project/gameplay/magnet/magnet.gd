@@ -19,8 +19,8 @@ func radius():
 	return $influence_area/collision_shape.shape.radius
 	
 
-func color():
-	return get_parent().color
+func type():
+	return get_parent().type
 	
 
 func attach(object):
