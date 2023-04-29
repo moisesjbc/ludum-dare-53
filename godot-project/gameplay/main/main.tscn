@@ -9,3 +9,9 @@
 
 [node name="box" parent="." instance=ExtResource( 2 )]
 position = Vector2( 918, 416 )
+
+[node name="box2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 473, 549 )
+
+[node name="box3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1330, 234 )

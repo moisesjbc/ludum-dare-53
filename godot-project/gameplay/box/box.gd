@@ -22,10 +22,7 @@ func _process(delta):
 		velocity += (near_magnet.global_position - global_position).normalized() * (near_magnet.radius() - global_position.distance_to(near_magnet.global_position))
 		
 	var collision = move_and_collide(velocity * delta)
-	if collision and collision.collider.name == "player":
-		var position = global_position
-		get_parent().remove_child(self)
-		collision.collider.get_node("attachments").add_child(self)
-		set_process(false)
-		set_collision_layer_bit(0, false)
-		global_position = position
+	if collision:
+		print('collision.collider.get_node("magnet") ', collision.collider.get_node("magnet"))
+	if collision and collision.collider.get_node("magnet"):
+		collision.collider.get_node("magnet").attach(self)
