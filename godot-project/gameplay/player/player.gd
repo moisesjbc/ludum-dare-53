@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 
 export (int) var speed = 500
-var magnet_working = false
 var color = Color.white
 
 
@@ -22,3 +21,14 @@ func _physics_process(delta):
 	move_and_collide(speed * velocity * delta)
 	
 	look_at(get_global_mouse_position())
+
+
+func _input(event):
+	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
+		if $magnet:
+			print("Removing magnet from player")
+			$magnet.remove()
+		else:
+			print("Addign magnet to player")
+			var magnet_scene = load("res://gameplay/magnet/magnet.tscn")
+			add_child(magnet_scene.instance())

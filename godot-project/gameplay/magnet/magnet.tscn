@@ -15,5 +15,11 @@ shape = SubResource( 1 )
 
 [node name="attachments" type="Node2D" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -22.0
+margin_top = -17.0
+margin_right = 18.0
+margin_bottom = 23.0
+
 [connection signal="body_entered" from="influence_area" to="." method="_on_magnet_body_entered"]
 [connection signal="body_exited" from="influence_area" to="." method="_on_magnet_body_exited"]
