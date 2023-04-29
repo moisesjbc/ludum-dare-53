@@ -9,7 +9,7 @@
 script = ExtResource( 4 )
 
 [node name="delivery_zone" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1769, 945 )
+position = Vector2( 1769, 139 )
 
 [node name="delivery_zone2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 145, 945 )
