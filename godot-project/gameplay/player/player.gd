@@ -23,7 +23,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
-		if get_node("magnet"):
+		if get_node_or_null("magnet"):
 			print("Removing magnet from player")
 			get_node("magnet").remove()
 		else:

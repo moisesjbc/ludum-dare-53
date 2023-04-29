@@ -5,11 +5,13 @@ var type
 var velocity = Vector2.ZERO
 var near_magnets = []
 var current_delivery_zone = null
+var box_generator
 
 
-func set_type(new_type, colors):
+func set_type(new_type, colors, box_generator):
 	type = new_type
 	$sprite.modulate = colors[type]
+	self.box_generator = box_generator
 
 
 func _process(delta):
@@ -26,13 +28,20 @@ func _process(delta):
 		collision.collider.get_node("magnet").attach(self)
 
 
-func deliver(is_correct):	
+func deliver(is_correct):
+	var magnet = get_node_or_null("magnet")
+	#if magnet:
+	#	print("DETACHING ALL")
+	#	magnet.remove()
+
 	if is_correct:
 		$score_label.text = "+10"
 		$animation_player.play("correct_delivery")
 	else:
 		$score_label.text = "-10"
 		$animation_player.play("wrong_delivery")
+		
+	
 
 
 func _on_animation_player_animation_finished(anim_name):

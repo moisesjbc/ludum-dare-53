@@ -21,4 +21,4 @@ func spawn_box():
 		200 + randi() % 600
 	)
 	$boxes.add_child(new_box)
-	new_box.set_type(randi() % 2, colors)
+	new_box.set_type(randi() % 2, colors, self)

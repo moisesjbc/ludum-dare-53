@@ -24,6 +24,7 @@ func type():
 	
 
 func attach(object):
+	print("Attaching ", object.name, " to ", name)
 	var object_position = object.global_position
 	var object_rotation = object.global_rotation
 	object.get_parent().remove_child(object)
@@ -38,19 +39,26 @@ func attach(object):
 	
 
 func detach(object):
+	print("Detaching ", object.name, " from ", get_parent().name)
 	var object_position = object.global_position
 	var object_rotation = object.global_rotation
 	$attachments.remove_child(object)
-	
-	get_tree().get_root().get_node("main").add_child(object)
+	object.box_generator.get_node("boxes").add_child(object)
 	object.set_process(true)
 	object.set_collision_mask_bit(0, true)
 	object.global_position = object_position
 	object.global_rotation = object_rotation
-	object.get_node("magnet").remove()
+	print("Position of ", object.name, " : ", object.global_position)
+	var object_magnet = object.get_node_or_null("magnet")
+	if object_magnet:
+		object_magnet.remove()
+
+
+func detach_all():
+	for attachment in $attachments.get_children():
+		detach(attachment)
 
 
 func remove():
-	for attachment in $attachments.get_children():
-		detach(attachment)
+	detach_all()
 	queue_free()
