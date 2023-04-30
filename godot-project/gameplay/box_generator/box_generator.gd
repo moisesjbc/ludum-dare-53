@@ -15,12 +15,12 @@ func reset(colors):
 
 func start_spawn_timer():
 	var random_time = min_spawn_time + randf() * (max_spawn_time - min_spawn_time)
-	print("random_time", random_time)
 	$respawn_timer.start(random_time)
 
 
 func _on_respawn_timer_timeout():
-	spawn_box()
+	for i in range(0, 2):
+		spawn_box()
 	start_spawn_timer()
 
 
