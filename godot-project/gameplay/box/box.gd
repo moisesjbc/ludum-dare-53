@@ -12,7 +12,8 @@ var colors
 
 func set_type(new_type):
 	type = new_type
-	$sprite.modulate = colors[type]
+	$blue_box_sprite.visible = type == 0
+	$green_box_sprite.visible = type != 0
 	for box in $boxes.get_children():
 		box.set_type(new_type)
 
