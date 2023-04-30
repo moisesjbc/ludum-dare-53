@@ -54,8 +54,6 @@ func spawn_box():
 		box_direction.x = (-50 + randi() % 100) * 0.01
 	
 	new_box.colors = colors
-	print("Box position: ", new_box.position)
-	print("Box direction: ", box_direction.normalized())
 	new_box.set_velocity(box_direction.normalized())
 	new_box.set_type(randi() % 2)
 	

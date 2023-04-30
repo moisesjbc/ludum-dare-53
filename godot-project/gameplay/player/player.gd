@@ -36,7 +36,6 @@ func set_type(new_type):
 
 
 func add_box(box):
-	print("Adding ", box.name, " as child to player")
 	box.set_process(false)
 
 	var box_global_position = box.global_position
@@ -48,7 +47,6 @@ func add_box(box):
 	# Make box collidable with wall
 	box.set_collision_mask_bit(3, true)
 	box.set_collision_layer(1)
-	print("collision mask ", box.get_collision_layer())
 	
 	box.global_position = box_global_position
 

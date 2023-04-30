@@ -31,7 +31,6 @@ func _process(delta):
 	rotate(rotation_velocity * delta)
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
-		print("collision between ", name, " and ", collision.collider.name)
 		var player = get_tree().get_root().get_node("main/player")
 		if type == collision.collider.type:
 			player.add_box(self)
