@@ -50,15 +50,26 @@ func add_box(box):
 
 func remove_all_boxes():
 	for box in $boxes.get_children():
-		box.queue_free()
-		
+		box.destroy()
+
+
 func destroy():
-	remove_all_boxes()
+	$blue_sprite.visible = false
+	$green_sprite.visible = false
+	for box in $boxes.get_children():
+		box.destroy()
+	$explosion.start(self, "destroy_player")
+	
+
+func destroy_player():
 	emit_signal("player_destroyed")
+
 	
 func deliver_all_boxes():
 	emit_signal("player_delivered", $boxes.get_child_count())
-	remove_all_boxes()
+	for box in $boxes.get_children():
+		box.deliver()
+
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:

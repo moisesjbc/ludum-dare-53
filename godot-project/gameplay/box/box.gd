@@ -42,19 +42,15 @@ func _process(delta):
 		queue_free()
 
 
-func deliver(is_correct):
-	var magnet = get_node_or_null("magnet")
-	if magnet:
-		magnet.remove()
-
-	if is_correct:
-		$score_label.text = "+10"
-		$animation_player.play("correct_delivery")
-	else:
-		$score_label.text = "-10"
-		$animation_player.play("wrong_delivery")
+func deliver():
+	$collision_shape.disabled = true
+	$blue_box_sprite.visible = false
+	$green_box_sprite.visible = false
+	$delivery_effect.start(self, "queue_free")
 
 
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "correct_delivery" or anim_name == "wrong_delivery":
-		queue_free()
+func destroy():
+	$collision_shape.disabled = true
+	$blue_box_sprite.visible = false
+	$green_box_sprite.visible = false
+	$explosion.start(null, null)
