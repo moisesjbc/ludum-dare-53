@@ -56,6 +56,7 @@ func spawn_box():
 	new_box.colors = colors
 	new_box.set_velocity(box_direction.normalized())
 	new_box.set_type(randi() % 2)
+	new_box.speed = 300 + randi() % 150
 	
 	
 	
