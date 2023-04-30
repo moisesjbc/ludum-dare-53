@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 background="*res://globals/background/background.tscn"
+SFX="*res://globals/SFX/SFX.tscn"
 
 [display]
 
