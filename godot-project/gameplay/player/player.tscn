@@ -37,3 +37,7 @@ bus = "SFX"
 stream = ExtResource( 6 )
 volume_db = -15.0
 bus = "SFX"
+
+[node name="cooldown_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]

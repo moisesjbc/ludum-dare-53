@@ -43,12 +43,14 @@ func _process(delta):
 
 func deliver():
 	$collision_shape.disabled = true
+	set_collision_mask(0)
 	$blue_box_sprite.visible = false
 	$green_box_sprite.visible = false
 	$delivery_effect.start(self, "queue_free")
 
 
 func destroy():
+	set_collision_mask(0)
 	$collision_shape.disabled = true
 	$blue_box_sprite.visible = false
 	$green_box_sprite.visible = false

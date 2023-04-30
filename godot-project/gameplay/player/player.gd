@@ -5,6 +5,7 @@ signal player_delivered(n_boxes)
 export (int) var speed = 500
 var type = 0
 var colors
+var on_cooldown = false
 
 
 func _ready():
@@ -36,19 +37,20 @@ func set_type(new_type):
 
 
 func add_box(box):
-	box.set_process(false)
+	if not on_cooldown:
+		box.set_process(false)
 
-	var box_global_position = box.global_position
-	box.get_parent().remove_child(box)
-	$boxes.add_child(box)
-	
-	# Disable collisions against player so box does not stop it from moving.
-	box.set_collision_mask_bit(0, false)
-	# Make box collidable with wall
-	box.set_collision_mask_bit(3, true)
-	box.set_collision_layer(1)
-	
-	box.global_position = box_global_position
+		var box_global_position = box.global_position
+		box.get_parent().remove_child(box)
+		$boxes.add_child(box)
+		
+		# Disable collisions against player so box does not stop it from moving.
+		box.set_collision_mask_bit(0, false)
+		# Make box collidable with wall
+		box.set_collision_mask_bit(3, true)
+		box.set_collision_layer(1)
+		
+		box.global_position = box_global_position
 
 func remove_all_boxes():
 	for box in $boxes.get_children():
@@ -56,12 +58,14 @@ func remove_all_boxes():
 
 
 func destroy():
-	$explosion_sound.play()
-	$blue_sprite.visible = false
-	$green_sprite.visible = false
-	for box in $boxes.get_children():
-		box.destroy()
-	$explosion.start(self, "destroy_player")
+	if not on_cooldown:
+		start_cooldown()
+		$explosion_sound.play()
+		$blue_sprite.visible = false
+		$green_sprite.visible = false
+		for box in $boxes.get_children():
+			box.destroy()
+		$explosion.start(self, "destroy_player")
 	
 
 func destroy_player():
@@ -69,15 +73,26 @@ func destroy_player():
 
 	
 func deliver_all_boxes():
-	$delivery_sound.play()
-	emit_signal("player_delivered", $boxes.get_child_count())
-	for box in $boxes.get_children():
-		box.deliver()
+	if not on_cooldown:
+		start_cooldown()
+		$delivery_sound.play()
+		emit_signal("player_delivered", $boxes.get_child_count())
+		for box in $boxes.get_children():
+			box.deliver()
 
 
 func _input(event):
-	if get_parent().name != "how_to_play" and event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
+	if not on_cooldown and event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
 		if type == 0:
 			set_type(1)
 		else:
 			set_type(0)
+
+
+func start_cooldown():
+	on_cooldown = true
+	$cooldown_timer.start(0.5)
+
+
+func _on_cooldown_timer_timeout():
+	on_cooldown = false
