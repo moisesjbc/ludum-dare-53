@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal player_destroyed
+signal player_delivered(n_boxes)
 export (int) var speed = 500
 var type = 0
 var colors
@@ -48,6 +49,10 @@ func remove_all_boxes():
 func destroy():
 	remove_all_boxes()
 	emit_signal("player_destroyed")
+	
+func deliver_all_boxes():
+	emit_signal("player_delivered", $boxes.get_child_count())
+	remove_all_boxes()
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:

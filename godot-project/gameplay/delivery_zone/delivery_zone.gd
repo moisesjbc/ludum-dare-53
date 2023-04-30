@@ -9,4 +9,4 @@ func reset(player):
 
 
 func _on_delivery_zone_body_entered(body):
-	player.remove_all_boxes()
+	player.deliver_all_boxes()
