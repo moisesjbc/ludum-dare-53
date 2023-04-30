@@ -1,13 +1,12 @@
 extends Area2D
 
-var type = 0
+
+var player = null
 
 
-func set_type(new_type, colors):
-	type = new_type
-	$color_rect.color = colors[type]
+func reset(player):
+	self.player = player
 
 
 func _on_delivery_zone_body_entered(body):
-	if body.is_in_group("boxes"):
-		body.deliver(body.type == type)
+	player.remove_all_boxes()
