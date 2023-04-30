@@ -1,6 +1,6 @@
 extends Node2D
 
-export (int) var score_per_box = 10
+export (int) var score_per_box = 1
 
 var colors = [
 	Color.blue,
