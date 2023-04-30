@@ -35,9 +35,10 @@ __meta__ = {
 }
 
 [node name="score" parent="gui" instance=ExtResource( 7 )]
-margin_left = 1737.0
-margin_right = 1880.0
-align = 1
+margin_left = 1719.0
+margin_top = 9.0
+margin_right = 1910.0
+margin_bottom = 83.0
 
 [node name="walls" type="Node2D" parent="."]
 

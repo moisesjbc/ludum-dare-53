@@ -1,4 +1,4 @@
-extends Label
+extends Panel
 
 
 var score = 0
@@ -10,7 +10,7 @@ func _ready():
 
 func set_score(new_score):
 	score = new_score
-	text = str(score)
+	$label.text = str(score)
 
 
 func add_score(score_delta):
