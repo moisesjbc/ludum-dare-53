@@ -58,6 +58,7 @@ func remove_all_boxes():
 
 
 func destroy():
+	$explosion_sound.play()
 	$blue_sprite.visible = false
 	$green_sprite.visible = false
 	for box in $boxes.get_children():
