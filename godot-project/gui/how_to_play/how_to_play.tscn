@@ -264,7 +264,7 @@ visible = false
 script = ExtResource( 19 )
 
 [node name="position" type="Position2D" parent="states/9"]
-position = Vector2( 28, 83 )
+position = Vector2( 28, 99 )
 
 [node name="player" type="Sprite" parent="states/9"]
 position = Vector2( 947, 1037 )
@@ -291,9 +291,10 @@ __meta__ = {
 }
 
 [node name="score" parent="gui" instance=ExtResource( 18 )]
-margin_left = 1737.0
-margin_right = 1880.0
-align = 1
+margin_left = 1722.0
+margin_top = 8.0
+margin_right = 1913.0
+margin_bottom = 82.0
 
 [connection signal="back_button_pressed" from="how_to_play_panel" to="." method="_on_how_to_play_panel_back_button_pressed"]
 [connection signal="next_button_pressed" from="how_to_play_panel" to="." method="_on_how_to_play_panel_next_button_pressed"]
