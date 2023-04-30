@@ -71,6 +71,7 @@ func destroy_player():
 
 	
 func deliver_all_boxes():
+	$delivery_sound.play()
 	emit_signal("player_delivered", $boxes.get_child_count())
 	for box in $boxes.get_children():
 		box.deliver()

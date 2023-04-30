@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gameplay/player/blue_player.png" type="Texture" id=1]
 [ext_resource path="res://gameplay/player/player.gd" type="Script" id=2]
 [ext_resource path="res://gameplay/player/green_player.png" type="Texture" id=3]
 [ext_resource path="res://gameplay/explosion/explosion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameplay/player/explosion.wav" type="AudioStream" id=5]
+[ext_resource path="res://gameplay/player/delivery.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 133.5, 21.5 )
@@ -30,4 +31,9 @@ shape = SubResource( 1 )
 [node name="explosion_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -20.0
+bus = "SFX"
+
+[node name="delivery_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
 bus = "SFX"
