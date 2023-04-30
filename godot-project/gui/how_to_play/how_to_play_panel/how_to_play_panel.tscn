@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/Ubuntu-B.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://gui/how_to_play/how_to_play_panel/how_to_play_panel.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="how_to_play_panel" type="Panel"]
+margin_left = -288.0
+margin_top = -96.0
+margin_right = 297.0
+margin_bottom = 92.0
+script = ExtResource( 3 )
+
+[node name="margin_container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="vbox_container" type="VBoxContainer" parent="margin_container"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 565.0
+margin_bottom = 168.0
+
+[node name="instructions" type="Label" parent="margin_container/vbox_container"]
+margin_right = 545.0
+margin_bottom = 104.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Welcome to Zero Gravity Delivery!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="margin_container/vbox_container"]
+margin_top = 108.0
+margin_right = 545.0
+margin_bottom = 148.0
+
+[node name="hbox_container" type="HBoxContainer" parent="margin_container/vbox_container/CenterContainer"]
+margin_left = 165.0
+margin_right = 379.0
+margin_bottom = 40.0
+custom_constants/separation = 50
+
+[node name="back_button" parent="margin_container/vbox_container/CenterContainer/hbox_container" instance=ExtResource( 1 )]
+margin_right = 81.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+
+[node name="next_button" parent="margin_container/vbox_container/CenterContainer/hbox_container" instance=ExtResource( 1 )]
+margin_left = 131.0
+margin_right = 214.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Next"
+
+[connection signal="pressed" from="margin_container/vbox_container/CenterContainer/hbox_container/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="margin_container/vbox_container/CenterContainer/hbox_container/next_button" to="." method="_on_next_button_pressed"]

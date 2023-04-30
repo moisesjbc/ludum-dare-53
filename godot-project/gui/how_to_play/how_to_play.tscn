@@ -1,0 +1,299 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://gameplay/delivery_zone/delivery_zone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gameplay/player/blue_player.png" type="Texture" id=2]
+[ext_resource path="res://gui/how_to_play/how_to_play.gd" type="Script" id=3]
+[ext_resource path="res://gui/how_to_play/how_to_play_panel/how_to_play_panel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/how_to_play/states/0.gd" type="Script" id=5]
+[ext_resource path="res://gui/how_to_play/states/1.gd" type="Script" id=6]
+[ext_resource path="res://gui/how_to_play/states/2.gd" type="Script" id=7]
+[ext_resource path="res://gui/how_to_play/states/3.gd" type="Script" id=8]
+[ext_resource path="res://gui/how_to_play/states/4.gd" type="Script" id=9]
+[ext_resource path="res://gameplay/box/green_box.png" type="Texture" id=10]
+[ext_resource path="res://gameplay/box/blue_box.png" type="Texture" id=11]
+[ext_resource path="res://gui/how_to_play/states/5.gd" type="Script" id=12]
+[ext_resource path="res://gui/how_to_play/states/6.gd" type="Script" id=13]
+[ext_resource path="res://gui/how_to_play/states/7.gd" type="Script" id=14]
+[ext_resource path="res://gameplay/player/green_player.png" type="Texture" id=15]
+[ext_resource path="res://gui/how_to_play/states/8.gd" type="Script" id=16]
+[ext_resource path="res://gameplay/gui/timer/timer.tscn" type="PackedScene" id=17]
+[ext_resource path="res://gameplay/gui/score/score.tscn" type="PackedScene" id=18]
+[ext_resource path="res://gui/how_to_play/states/9.gd" type="Script" id=19]
+[ext_resource path="res://gui/how_to_play/states/10.gd" type="Script" id=20]
+
+[node name="how_to_play" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="delivery_zone" parent="." instance=ExtResource( 1 )]
+position = Vector2( 959, 169 )
+
+[node name="how_to_play_panel" parent="." instance=ExtResource( 4 )]
+margin_left = -342.0
+margin_top = -125.0
+margin_right = 339.0
+margin_bottom = 123.0
+
+[node name="states" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 5 )
+
+[node name="position" type="Position2D" parent="states/0"]
+position = Vector2( 604, 421 )
+
+[node name="player" type="Sprite" parent="states/0"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 2 )
+
+[node name="1" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 6 )
+
+[node name="position" type="Position2D" parent="states/1"]
+position = Vector2( 598, 756 )
+
+[node name="player" type="Sprite" parent="states/1"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 2 )
+
+[node name="2" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 7 )
+
+[node name="position" type="Position2D" parent="states/2"]
+position = Vector2( 608, 296 )
+
+[node name="player" type="Sprite" parent="states/2"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 2 )
+
+[node name="3" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 8 )
+
+[node name="position" type="Position2D" parent="states/3"]
+position = Vector2( 604, 421 )
+
+[node name="player" type="Sprite" parent="states/3"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 2 )
+
+[node name="4" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 9 )
+
+[node name="position" type="Position2D" parent="states/4"]
+position = Vector2( 604, 421 )
+
+[node name="box0" type="Sprite" parent="states/4"]
+position = Vector2( 1520, 433 )
+rotation = 0.804509
+texture = ExtResource( 10 )
+
+[node name="box1" type="Sprite" parent="states/4"]
+position = Vector2( 434, 611 )
+rotation = -0.564259
+texture = ExtResource( 10 )
+
+[node name="box2" type="Sprite" parent="states/4"]
+position = Vector2( 234, 327 )
+rotation = -2.51151
+texture = ExtResource( 11 )
+
+[node name="player" type="Sprite" parent="states/4"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 2 )
+
+[node name="5" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 12 )
+
+[node name="position" type="Position2D" parent="states/5"]
+position = Vector2( 604, 365 )
+
+[node name="box0" type="Sprite" parent="states/5"]
+position = Vector2( 947, 838 )
+rotation = 0.804509
+texture = ExtResource( 11 )
+
+[node name="box2" type="Sprite" parent="states/5"]
+position = Vector2( 1041, 798 )
+rotation = 0.804509
+texture = ExtResource( 11 )
+
+[node name="box3" type="Sprite" parent="states/5"]
+position = Vector2( 1037, 689 )
+rotation = 3.06439
+texture = ExtResource( 11 )
+
+[node name="box1" type="Sprite" parent="states/5"]
+position = Vector2( 959.989, 947.698 )
+rotation = -0.564259
+texture = ExtResource( 11 )
+
+[node name="player" type="Sprite" parent="states/5"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 2 )
+
+[node name="6" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 13 )
+
+[node name="position" type="Position2D" parent="states/6"]
+position = Vector2( 604, 237 )
+
+[node name="box4" type="Sprite" parent="states/6"]
+position = Vector2( 860, 589 )
+rotation = -2.51151
+texture = ExtResource( 10 )
+
+[node name="player" type="Sprite" parent="states/6"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 2 )
+
+[node name="box0" type="Sprite" parent="states/6"]
+position = Vector2( 947, 838 )
+rotation = 0.804509
+texture = ExtResource( 11 )
+
+[node name="box2" type="Sprite" parent="states/6"]
+position = Vector2( 1041, 798 )
+rotation = 0.804509
+texture = ExtResource( 11 )
+
+[node name="box3" type="Sprite" parent="states/6"]
+position = Vector2( 1037, 689 )
+rotation = 3.06439
+texture = ExtResource( 11 )
+
+[node name="box1" type="Sprite" parent="states/6"]
+position = Vector2( 959.989, 947.698 )
+rotation = -0.564259
+texture = ExtResource( 11 )
+
+[node name="7" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 14 )
+
+[node name="player" type="Sprite" parent="states/7"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 15 )
+
+[node name="box4" type="Sprite" parent="states/7"]
+position = Vector2( 988, 589 )
+rotation = -3.65627
+texture = ExtResource( 10 )
+
+[node name="box0" type="Sprite" parent="states/7"]
+position = Vector2( 947, 838 )
+rotation = 0.804509
+texture = ExtResource( 10 )
+
+[node name="box2" type="Sprite" parent="states/7"]
+position = Vector2( 1041, 798 )
+rotation = 0.804509
+texture = ExtResource( 10 )
+
+[node name="box3" type="Sprite" parent="states/7"]
+position = Vector2( 1037, 689 )
+rotation = 3.06439
+texture = ExtResource( 10 )
+
+[node name="box1" type="Sprite" parent="states/7"]
+position = Vector2( 959.989, 947.698 )
+rotation = -0.564259
+texture = ExtResource( 10 )
+
+[node name="position" type="Position2D" parent="states/7"]
+position = Vector2( 1140, 229 )
+
+[node name="8" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 16 )
+
+[node name="position" type="Position2D" parent="states/8"]
+position = Vector2( 1232, 121 )
+
+[node name="player" type="Sprite" parent="states/8"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 15 )
+
+[node name="box4" type="Sprite" parent="states/8"]
+position = Vector2( 988, 589 )
+rotation = -3.65627
+texture = ExtResource( 10 )
+
+[node name="box5" type="Sprite" parent="states/8"]
+position = Vector2( 887, 542 )
+rotation = -3.65627
+texture = ExtResource( 10 )
+
+[node name="box6" type="Sprite" parent="states/8"]
+position = Vector2( 1015, 477 )
+rotation = 0.214761
+texture = ExtResource( 10 )
+
+[node name="box7" type="Sprite" parent="states/8"]
+position = Vector2( 978, 370 )
+rotation = 0.214761
+texture = ExtResource( 10 )
+
+[node name="box0" type="Sprite" parent="states/8"]
+position = Vector2( 947, 838 )
+rotation = 0.804509
+texture = ExtResource( 10 )
+
+[node name="box2" type="Sprite" parent="states/8"]
+position = Vector2( 1041, 798 )
+rotation = 0.804509
+texture = ExtResource( 10 )
+
+[node name="box3" type="Sprite" parent="states/8"]
+position = Vector2( 1037, 689 )
+rotation = 3.06439
+texture = ExtResource( 10 )
+
+[node name="box1" type="Sprite" parent="states/8"]
+position = Vector2( 959.989, 947.698 )
+rotation = -0.564259
+texture = ExtResource( 10 )
+
+[node name="9" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 19 )
+
+[node name="position" type="Position2D" parent="states/9"]
+position = Vector2( 28, 83 )
+
+[node name="player" type="Sprite" parent="states/9"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 15 )
+
+[node name="10" type="Node2D" parent="states"]
+visible = false
+script = ExtResource( 20 )
+
+[node name="player" type="Sprite" parent="states/10"]
+position = Vector2( 947, 1037 )
+texture = ExtResource( 15 )
+
+[node name="position" type="Position2D" parent="states/10"]
+position = Vector2( 604, 421 )
+
+[node name="gui" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="timer" parent="gui" instance=ExtResource( 17 )]
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="score" parent="gui" instance=ExtResource( 18 )]
+margin_left = 1737.0
+margin_right = 1880.0
+align = 1
+
+[connection signal="back_button_pressed" from="how_to_play_panel" to="." method="_on_how_to_play_panel_back_button_pressed"]
+[connection signal="next_button_pressed" from="how_to_play_panel" to="." method="_on_how_to_play_panel_next_button_pressed"]

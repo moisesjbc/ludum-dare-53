@@ -7,6 +7,10 @@ var type = 0
 var colors
 
 
+func _ready():
+	set_physics_process(get_parent().name != "how_to_play")
+
+
 func reset(colors):
 	self.colors = colors
 	set_type(0)
@@ -72,7 +76,7 @@ func deliver_all_boxes():
 
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
+	if get_parent().name != "how_to_play" and event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
 		if type == 0:
 			set_type(1)
 		else:
