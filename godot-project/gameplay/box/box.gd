@@ -30,7 +30,7 @@ func _process(delta):
 			player.add_box(self)
 		else:
 			queue_free()
-			player.remove_all_boxes()
+			player.destroy()
 
 
 func deliver(is_correct):
