@@ -56,3 +56,7 @@ func deliver(is_correct):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "correct_delivery" or anim_name == "wrong_delivery":
 		queue_free()
+
+
+func _on_visibility_notifier_screen_exited():
+	queue_free()
