@@ -9,5 +9,17 @@ script = ExtResource( 1 )
 
 [node name="respawn_timer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
+
+[node name="respawn_positions" type="Node2D" parent="."]
+
+[node name="top_respawn_position" type="Position2D" parent="respawn_positions"]
+position = Vector2( 992, -112 )
+
+[node name="left_respawn_position" type="Position2D" parent="respawn_positions"]
+position = Vector2( -128, 472 )
+
+[node name="right_respawn_position" type="Position2D" parent="respawn_positions"]
+position = Vector2( 2016, 472 )
 
 [connection signal="timeout" from="respawn_timer" to="." method="_on_respawn_timer_timeout"]

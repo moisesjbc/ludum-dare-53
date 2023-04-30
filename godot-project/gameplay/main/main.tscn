@@ -1,19 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gameplay/player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://gameplay/delivery_zone/delivery_zone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameplay/main/main.gd" type="Script" id=4]
 [ext_resource path="res://gameplay/box_generator/box_generator.tscn" type="PackedScene" id=5]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="delivery_zone" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1769, 139 )
-
-[node name="delivery_zone2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 145, 945 )
-
 [node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 947, 1037 )
 
 [node name="box_generator" parent="." instance=ExtResource( 5 )]

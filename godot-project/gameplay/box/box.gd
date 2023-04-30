@@ -6,26 +6,31 @@ var velocity = Vector2.ZERO
 var near_magnets = []
 var current_delivery_zone = null
 var box_generator
+var speed = 400
+var colors
 
 
-func set_type(new_type, colors, box_generator):
+func set_type(new_type):
 	type = new_type
 	$sprite.modulate = colors[type]
-	self.box_generator = box_generator
+	for box in $boxes.get_children():
+		box.set_type(new_type)
+
+
+func set_velocity(new_velocity):
+	velocity = new_velocity
 
 
 func _process(delta):
-	var velocity = Vector2.ZERO
-
-	for near_magnet in near_magnets:
-		var multiplier = 1
-		if type == near_magnet.type():
-			multiplier = -1
-		velocity += (near_magnet.global_position - global_position).normalized() * multiplier * (near_magnet.radius() - global_position.distance_to(near_magnet.global_position))
-		
-	var collision = move_and_collide(velocity * delta)
-	if collision and collision.collider.get_node_or_null("magnet") and collision.collider.get_node("magnet").type() != type:
-		collision.collider.get_node("magnet").attach(self)
+	var collision = move_and_collide(velocity * speed * delta)
+	if collision:
+		print("collision between ", name, " and ", collision.collider.name)
+		var player = get_tree().get_root().get_node("main/player")
+		if type == collision.collider.type:
+			player.add_box(self)
+		else:
+			queue_free()
+			player.remove_all_boxes()
 
 
 func deliver(is_correct):
@@ -39,8 +44,6 @@ func deliver(is_correct):
 	else:
 		$score_label.text = "-10"
 		$animation_player.play("wrong_delivery")
-		
-	
 
 
 func _on_animation_player_animation_finished(anim_name):
