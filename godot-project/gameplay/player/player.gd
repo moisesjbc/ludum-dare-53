@@ -34,13 +34,18 @@ func set_type(new_type):
 func add_box(box):
 	print("Adding ", box.name, " as child to player")
 	box.set_process(false)
-	# Disable collisions against player so box does not stop it from moving.
-	box.set_collision_mask_bit(0, false)
-	box.set_collision_layer(1)
-	
+
 	var box_global_position = box.global_position
 	box.get_parent().remove_child(box)
 	$boxes.add_child(box)
+	
+	# Disable collisions against player so box does not stop it from moving.
+	box.set_collision_mask_bit(0, false)
+	# Make box collidable with wall
+	box.set_collision_mask_bit(3, true)
+	box.set_collision_layer(1)
+	print("collision mask ", box.get_collision_layer())
+	
 	box.global_position = box_global_position
 
 func remove_all_boxes():

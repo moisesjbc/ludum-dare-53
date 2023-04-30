@@ -8,6 +8,7 @@
 extents = Vector2( 133.5, 21.5 )
 
 [node name="player" type="KinematicBody2D" groups=["boxes"]]
+collision_mask = 8
 script = ExtResource( 2 )
 
 [node name="blue_sprite" type="Sprite" parent="."]
