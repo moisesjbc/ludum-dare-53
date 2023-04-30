@@ -17,7 +17,7 @@ position = Vector2( 962, 549 )
 texture = ExtResource( 8 )
 
 [node name="delivery_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 999, 249 )
+position = Vector2( 959, 169 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 947, 1037 )
