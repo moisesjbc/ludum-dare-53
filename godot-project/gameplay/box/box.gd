@@ -8,7 +8,7 @@ var current_delivery_zone = null
 var box_generator
 var speed = 400
 var colors
-
+var rotation_velocity = 0
 
 func set_type(new_type):
 	type = new_type
@@ -20,9 +20,15 @@ func set_type(new_type):
 
 func set_velocity(new_velocity):
 	velocity = new_velocity
+	var rotation_multiplier = 1
+	if randi() % 2:
+		rotation_multiplier = -1
+	rotation_velocity = rotation_multiplier * (2 + randi() % 4)
+	
 
 
 func _process(delta):
+	rotate(rotation_velocity * delta)
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
 		print("collision between ", name, " and ", collision.collider.name)
