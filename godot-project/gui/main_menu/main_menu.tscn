@@ -73,4 +73,5 @@ valign = 1
 
 [connection signal="pressed" from="bottom_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="bottom_container/vbox_container/how_to_play_button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="bottom_container/vbox_container/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="bottom_container/vbox_container/exit_button" to="." method="_on_exit_button_pressed"]
